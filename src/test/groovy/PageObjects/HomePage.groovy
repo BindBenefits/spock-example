@@ -2,7 +2,7 @@ package PageObjects
 
 import Common.BasePage
 
-class homePage extends BasePage{
+class HomePage extends BasePage{
 
     static  at = {signInLink.isDisplayed()}
     static content ={
