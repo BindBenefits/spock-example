@@ -6,7 +6,7 @@ import spock.lang.Issue
 import spock.lang.Narrative
 
 @Narrative("Spec for checking login functionality")
-class loginSpec extends BaseSpec {
+class LoginSpec extends BaseSpec {
 
     def userName = UserData.admin.userName
     def userPw = UserData.admin.userPw
