@@ -22,9 +22,9 @@ import java.util.concurrent.TimeUnit
 import static org.openqa.selenium.remote.DesiredCapabilities.firefox
 
 localUrl {
-    devFoo = "https://foo.herokuapp.com/"
-    localFoo="https://foo.herokuapp.com/"
-    prodFoo"https://www.foo.com"
+    devFoo = "http://knockoutjs.com/examples/"
+    localFoo="http://knockoutjs.com/examples/"
+    prodFoo= "http://knockoutjs.com/examples/"
 }
 
 
