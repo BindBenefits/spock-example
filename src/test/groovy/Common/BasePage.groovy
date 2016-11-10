@@ -1,14 +1,10 @@
 package Common
 
+import Modules.MainMenuBar
 import geb.Page
 
 
     class BasePage extends Page {
-
-        static content= {
-            navBar { module NavBarModule }
-
-        }
 
 
         protected void switchToMainWindow() {

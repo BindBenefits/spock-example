@@ -6,10 +6,11 @@ import Modules.MainMenuBar
 class ExampleHomePage extends BasePage{
 
     static  at = {knockoutHeader.isDisplayed()}
-    static content ={
+
+    static content = {
         menuBar                            {module MainMenuBar}
-        knockoutHeader(wait:true)          {find("h1", text:"Live examples")}
-        helloWorldLink                     {find("a", href:"http://knockoutjs.com/examples/helloWorld.html")}
+        knockoutHeader(wait:true)          {$("h1", text:"Live examples")}
+        helloWorldLink                     {$("a", text:"the ‘Hello World’ example")}
      }
 
 

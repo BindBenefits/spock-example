@@ -19,7 +19,7 @@ class HelloWorldSpec extends BaseSpec {
     def HelloWorldExamplePageLoads() {
         when: "At the home page, click hello world link"
             at ExampleHomePage
-            ExampleHomePage.clickHelloWorldLink()
+            clickHelloWorldLink()
         then: "Verify at the Hello World Page"
             assert at(HelloWorldPage)
     }
