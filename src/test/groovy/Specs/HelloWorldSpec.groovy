@@ -22,9 +22,9 @@ class HelloWorldSpec extends BaseSpec {
             clickHelloWorldLink()
         then: "Verify at the Hello World Page"
             assert at(HelloWorldPage)
-    /*    when:"Enter a value in the first name field"
-            enterFirstNameText("yo dawg")
+        when:"Enter names in first and last name field"
+            setNameTextBoxValues("Firsty", "McLastName")
         then:"Assert it takes"
-            assert getFirstNameTextValue() == "yo dawg"     */
+            assert getLiveExampleResultText() == "Hello, Firsty McLastName!"
     }
 }
