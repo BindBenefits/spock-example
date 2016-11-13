@@ -35,7 +35,7 @@ class HelloWorldSpec extends BaseSpec {
     }
 
 
-    @Unroll
+    @Unroll ("Testing #firstName and #lastName")
     @Issue("Hello World Example, but with spock data tables")
     def HelloWorldExamplePageDataTable() {
         when: "At the home page, click hello world link"
@@ -57,7 +57,7 @@ class HelloWorldSpec extends BaseSpec {
         "Cleveland" | "Brown"
     }
 
-    @Unroll
+    @Unroll ("Testing #firstName and #lastName")
     @Issue("Hello World Example, but with spock data tables via data pipe")
     def HelloWorldExamplePageDataTableWithPipedDate() {
         when: "At the home page, click hello world link"
