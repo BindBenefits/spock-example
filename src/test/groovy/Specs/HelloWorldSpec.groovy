@@ -1,15 +1,20 @@
 package Specs
 
 import Common.BaseSpec
+import Common.SQLController
 import PageObjects.ExampleHomePage
 import PageObjects.HelloWorldPage
 import spock.lang.Issue
 import spock.lang.Narrative
+import spock.lang.Shared
 import spock.lang.Unroll
 
 @Narrative("Spec for walking thru the Hello World Example")
 class HelloWorldSpec extends BaseSpec {
 
+
+    @Shared
+    sql = new SQLController()
 
 
     def setupTest() {
@@ -42,7 +47,7 @@ class HelloWorldSpec extends BaseSpec {
             setNameTextBoxValues(firstName, lastName)
         then:"Assert it takes"
             assert getLiveExampleResultText() == "Hello, "+firstName+" "+lastName+"!"
-        where:
+        where: "Piping our data from a data table"
         firstName   | lastName
         "Firsty"    |  "McLastName"
         "Peter"     |  "Griffin"
@@ -50,7 +55,22 @@ class HelloWorldSpec extends BaseSpec {
         "Glen"      |  "Quagmire"
         "Bonnie"    |  "Swanson"
         "Cleveland" | "Brown"
+    }
 
+    @Unroll
+    @Issue("Hello World Example, but with spock data tables via data pipe")
+    def HelloWorldExamplePageDataTableWithPipedDate() {
+        when: "At the home page, click hello world link"
+            at ExampleHomePage
+            clickHelloWorldLink()
+        then: "Verify at the Hello World Page"
+            assert at(HelloWorldPage)
+        when:"Enter names in first and last name field"
+            setNameTextBoxValues(firstName, lastName)
+        then:"Assert it takes"
+            assert getLiveExampleResultText() == "Hello, "+firstName+" "+lastName+"!"
+        where: "Piping our data from a database"
+            [firstName, lastName] <<  sql.runQueryReturnData("select first_name, last_name from actor limit 5")
     }
 
 
