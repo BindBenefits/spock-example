@@ -8,7 +8,7 @@ import groovy.json.JsonSlurper
 import spock.lang.Issue
 import spock.lang.Narrative
 
-@Narrative("Spec for walking thru the Hello World Example")
+@Narrative("Spec for demo'ing API")
 class ApiSpec extends GebSpec {
 
 
