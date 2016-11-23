@@ -8,6 +8,7 @@
 import geb.report.ReportState
 import geb.report.Reporter
 import geb.report.ReportingListener
+import org.openqa.selenium.Dimension
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.chrome.ChromeDriver
 import org.openqa.selenium.chrome.ChromeOptions
@@ -132,4 +133,35 @@ environments {
             remoteDriver
         }
     }
+
+
+    remote_android{
+        chromeDriver = new File('src/test/resources/osx/chromedriver')
+        Map<String, String> mobileEmulation = new HashMap<String, String>();
+        mobileEmulation.put("deviceName", "Google Nexus 5");
+        Map<String, Object> chromeOptions = new HashMap<String, Object>();
+        chromeOptions.put("mobileEmulation", mobileEmulation);
+        DesiredCapabilities capabilities = DesiredCapabilities.chrome();
+        capabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
+        WebDriver driver = new ChromeDriver(capabilities);
+        driver.manage().window().setSize(new Dimension(360,640));
+        driver
+    }
+
+
+    remote_ios_with_chromedriver{
+        chromeDriver = new File('src/test/resources/osx/chromedriver')
+        Map<String, String> mobileEmulation = new HashMap<String, String>();
+        mobileEmulation.put("deviceName", "Apple iPhone 6");
+        Map<String, Object> chromeOptions = new HashMap<String, Object>();
+        chromeOptions.put("mobileEmulation", mobileEmulation);
+        DesiredCapabilities capabilities = DesiredCapabilities.chrome();
+        capabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
+        WebDriver driver = new ChromeDriver(capabilities);
+        driver.manage().window().setSize(new Dimension(375,677));
+        driver
+    }
+
+
+
 }
