@@ -161,7 +161,15 @@ environments {
 
     remote_ios_with_chromedriver {
         driver = {
-            chromeDriver = new File('src/test/resources/osx/chromedriver')
+            def myOs = System.getProperty("os.name").toLowerCase()
+            // switch between mac (for development), and linux for code ship.  Will add windows if we need it
+            def chromeDriver = ""
+            if (myOs.startsWith("mac")) {
+                chromeDriver = new File('src/test/resources/osx/chromedriver')
+            } else {
+                chromeDriver = new File('src/test/resources/linux/chromedriver')
+            }
+            System.setProperty('webdriver.chrome.driver', chromeDriver.absolutePath)
             Map<String, String> mobileEmulation = new HashMap<String, String>();
             mobileEmulation.put("deviceName", "Apple iPhone 6");
             Map<String, Object> chromeOptions = new HashMap<String, Object>();
