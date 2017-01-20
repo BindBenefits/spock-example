@@ -10,13 +10,15 @@ repositories {
 
   dependencies {
     testCompile "org.spockframework:spock-core:1.0-groovy-2.4"
-    testCompile "org.gebish:geb-core:1.1"
-    testCompile "org.gebish:geb-spock:1.1"
+    testCompile "org.gebish:geb-core:1.1.1"
+    testCompile "org.gebish:geb-spock:1.1.1"
     testCompile "org.seleniumhq.selenium:selenium-chrome-driver:3.0.1"
     testCompile "org.seleniumhq.selenium:selenium-java:3.0.1"
     testCompile "org.xerial:sqlite-jdbc:3.7.2"
+    compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.22'
+
     testCompile "org.codehaus.groovy.modules.http-builder:http-builder:0.7.1"
-    testCompile('com.athaydes:spock-reports:1.2.7') {
+    testCompile('com.athaydes:spock-reports:1.2.13') {
       transitive = false // this avoids affecting your version of Groovy/Spock
     }
   }

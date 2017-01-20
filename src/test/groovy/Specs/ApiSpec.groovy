@@ -4,7 +4,6 @@ package Specs
 import Common.APIHelper
 
 import geb.spock.GebSpec
-import groovy.json.JsonSlurper
 import spock.lang.Issue
 import spock.lang.Narrative
 
